@@ -15,6 +15,7 @@ var app = new Vue({
     basePrice: 100,
     url: 'https://www.google.co.jp',
     message: 'Hello <span style="color:red;">Vue.js!</span>',
+    message2: 'Hello Vue.js!',
     text: 'Lorem ipsum is typically a corrupted version of De finibus bonorum et malorum, a 1st century BC text by the Roman statesman and philosopher Cicero, with words altered, added, and removed to make it nonsensical and improper Latin.',
     price: 298000000,
     jpyPrice: 298000,
@@ -60,6 +61,11 @@ var app = new Vue({
       set: function(taxIncludedPrice) {
         this.basePrice = Math.ceil(taxIncludedPrice / 1.08)
       }
+    }
+  },
+  watch: {
+    message2: function(newValue, oldValue) {
+    console.log('new: %s, old: %s', newValue, oldValue)
     }
   }
 })
