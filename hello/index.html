@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  
+  <title>Hello Vue.js</title>
+</head>
+<body>
+  <div id="app">
+    <h2>v-cloak</h2>
+    <p v-cloak>
+      {{ message }}
+    </p>
+    <p v-html="message">
+    </p>
+    <p v-text="message"></p>
+    <p>
+      "{{ message }}"
+    </p>
+    <p>
+      {{ number + 1 }}
+    </p>
+    <p>
+      {{ message.split('').reverse().join('') }}
+    </p>
+    <p>
+      {{ ok ? 'YES' : 'NO' }}
+    </p>
+    <p>
+      <!-- {{ var X = 1 }} -->
+      <!-- {{ if(ok) { return message } }} -->
+      {{ ok ? message : ''}}
+    </p>
+    <h2>
+      Mustache
+    </h2>
+    <p>
+      {{ price | numberFormat }}
+    </p>
+    <h2>
+      v-bind
+    </h2>
+    <input type="text" v-bind:value="price | numberFormat">
+
+
+    <p>
+      {{ jpyPrice | toUSD | numberFormat }}
+    </p>
+
+    <p>
+      {{ text | readMore(5, '***')}}
+    </p>
+    
+    <a v-bind:href="url" target="_blank">Link1</a>
+    <a :href="url" target="_blank">Link2</a>
+    <p>
+      {{ message.split('').reverse().join('') }}
+    </p>
+    <p>
+      {{ reversedMessage }}
+    </p>
+    <p>
+      {{ reversedMessageMethod() }}
+    </p>
+    <button v-on:click="clickHandler">
+      Click!
+    </button>
+    <p>
+      {{ count }}
+    </p>
+    <p>
+      {{ user.prefecture }}
+    </p>
+    <p>
+      {{ colors[0] }}
+    </p>
+
+    <p>
+      base price: <input type="text" v-model="basePrice">
+    </p>
+    <P>
+      tax included price <input type="text" v-model="taxIncludedPrice">
+    </P>
+
+    <h2>
+      Computed
+    </h2>
+    <ol>
+      <li>{{ computedNumber}}</li>
+      <li>{{ computedNumber}}</li>
+      <li>{{ computedNumber}}</li>
+    </ol>
+    <h2>
+      Methods
+    </h2>
+    <ol>
+      <li>{{ methodsNumber() }}</li>
+      <li>{{ methodsNumber() }}</li>
+      <li>{{ methodsNumber() }}</li>
+    </ol>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
