@@ -30,7 +30,10 @@ var app = new Vue({
     colors: ['Red', 'Green', 'Blue'],
     km: 0,
     m: 0,
-    mm: 0
+    mm: 0,
+    firstName: '',
+    lastName: ''
+    // fullName: '',
   },
   methods: {
     methodsNumber: function(){
@@ -64,6 +67,9 @@ var app = new Vue({
       set: function(taxIncludedPrice) {
         this.basePrice = Math.ceil(taxIncludedPrice / 1.08)
       }
+    },
+    fullName: function() {
+      return this.firstName + ' ' + this.lastName
     }
   },
   watch: {
@@ -86,6 +92,11 @@ var app = new Vue({
       this.m = value / 1000
       this.mm = value 
     }
-
+    // firstName: function(value) {
+    //   this.fullName = value + ' ' + this.lastName
+    // },
+    // lastName: function(value) {
+    //   this.fullName = this.firstName + ' ' + value
+    // }
   }
 })
